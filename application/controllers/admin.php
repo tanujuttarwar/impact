@@ -4,12 +4,14 @@ class Admin extends CI_Controller {
 
 	public function __construct(){
 		parent::__construct();
+		$this->template->write_view('scripts','template/scripts');
+		$this->template->write_view('header','template/header');
+		$this->template->write_view('sidebar','template/admin_sidebar');
+		$this->template->write_view('footer','template/footer');
 	}
 
 	public function index()
 	{
-		$this->template->write('header','Project Impact');
-		$this->template->write('sidebar','Sidebar');
 		$this->template->render();
 	}
 }

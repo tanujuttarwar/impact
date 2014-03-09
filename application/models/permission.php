@@ -1,28 +1,12 @@
 <?php
-class Member extends CI_Model{
-		var $member_id;
-		var $college_id;
-		var $member_name;
-	    var $branch_id;
-		var $year;
-		var $gender;
-		var $dob;
-		var $contact_no;
-		var $email;
-		var $photo;
-		var $event_id;
-		var $position_id;
-		var $committee_id;
-		var $password;
+class Permission extends CI_Model{
+		var $permission_id;
 		var $role_id;
-		var $status;
-		var $degree_id;
-		
-		
-		
-		
-		static $tablename = 'Member';
-		static $tableid = 'member_id';
+		var $module_id;
+	   
+			
+		static $tablename = 'permission';
+		static $tableid = 'permission_id';
 		function find_by_id($id){
 			$tableid = self::$tableid;
 			$resultset = $this->db->get_where(self::$tablename,array($tableid=>$id),1);
@@ -31,15 +15,11 @@ class Member extends CI_Model{
 			return false;
 		}
 		
-		function find_all_by_event_id($eid){
-			$resultset = $this->db->get_where(self::$tablename,array('event_id'=>$eid));
-			return $resultset->result(get_class($this));
-		}
-		
 		function find_all(){
 			$resultset = $this->db->get(self::$tablename);
 			return $resultset->result(get_class($this));
 		}
+		
 		
 		function save(){
 		$tableid = self::$tableid;
@@ -64,3 +44,4 @@ class Member extends CI_Model{
 			$this->db->delete(self::$tablename);
 		}
 	}
+	

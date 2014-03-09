@@ -60,6 +60,7 @@ $template['active_template'] = 'two_column';
 
 $template['two_column']['template'] = 'template/two_column';
 $template['two_column']['regions'] = array(
+   'scripts',
    'header',
    'navigation',
    'sidebar',
