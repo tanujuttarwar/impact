@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 23, 2014 at 09:49 AM
--- Server version: 5.5.34
--- PHP Version: 5.3.10-1ubuntu3.9
+-- Generation Time: Mar 09, 2014 at 02:18 PM
+-- Server version: 5.6.12-log
+-- PHP Version: 5.4.16
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,8 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `impact2`
+-- Database: `impact`
 --
+CREATE DATABASE IF NOT EXISTS `impact` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `impact`;
 
 -- --------------------------------------------------------
 
@@ -74,7 +76,7 @@ CREATE TABLE IF NOT EXISTS `branch` (
   `branch_id` int(2) NOT NULL AUTO_INCREMENT,
   `branch_name` varchar(50) NOT NULL,
   PRIMARY KEY (`branch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -87,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `committee` (
   `committee_name` varchar(50) NOT NULL,
   PRIMARY KEY (`committee_id`),
   UNIQUE KEY `committee_name` (`committee_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -99,7 +101,7 @@ CREATE TABLE IF NOT EXISTS `degree` (
   `degree_id` int(2) NOT NULL AUTO_INCREMENT,
   `degree_name` varchar(50) NOT NULL,
   PRIMARY KEY (`degree_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `event_datetime` datetime NOT NULL,
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `event_name` (`event_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -243,7 +245,19 @@ CREATE TABLE IF NOT EXISTS `member` (
   KEY `role_index` (`role_id`),
   KEY `branch_id` (`branch_id`),
   KEY `degree_id` (`degree_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `module`
+--
+
+CREATE TABLE IF NOT EXISTS `module` (
+  `module_id` int(11) NOT NULL AUTO_INCREMENT,
+  `module_name` varchar(30) NOT NULL,
+  PRIMARY KEY (`module_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -265,6 +279,23 @@ CREATE TABLE IF NOT EXISTS `other_qualification_detail` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `permission`
+--
+
+CREATE TABLE IF NOT EXISTS `permission` (
+  `permission_id` int(11) NOT NULL AUTO_INCREMENT,
+  `role_id` int(11) NOT NULL,
+  `module_id` int(11) NOT NULL,
+  PRIMARY KEY (`permission_id`),
+  UNIQUE KEY `r_m_unique` (`role_id`,`module_id`),
+  KEY `role_id` (`role_id`),
+  KEY `role_id_2` (`role_id`),
+  KEY `module_id` (`module_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `position`
 --
 
@@ -274,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `position` (
   `position_description` text NOT NULL,
   PRIMARY KEY (`position_id`),
   UNIQUE KEY `position_name` (`position_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -300,7 +331,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `role_desc` text NOT NULL,
   PRIMARY KEY (`role_id`),
   UNIQUE KEY `role_name` (`role_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Constraints for dumped tables
