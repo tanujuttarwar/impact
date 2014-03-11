@@ -18,6 +18,11 @@ class Event_hotel extends CI_Model{
 			return false;
 		}
 		
+		function find_all_by_event($eid){
+			$resultset = $this->db->get_where(self::$tablename,array('event_id'=>$eid));
+			return $resultset->result(get_class($this));
+		}
+		
 		function find_all(){
 			$resultset = $this->db->get(self::$tablename);
 			return $resultset->result(get_class($this));
