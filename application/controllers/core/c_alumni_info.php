@@ -7,38 +7,21 @@
 		
 		function add(){
 			$this->load->model('alumni_info','mb');
+			$this->load->model('degree','deg');
+			$this->load->model('branch','branch');
+			$data['model_degree'] = $this->deg;
+			$data['model_branch'] = $this->branch;
 			//$this->form_validation->set_rules('alumni_id', 'Alumni ID', 'required|is_unique[alumni_info.alumni_id]');
-			$this->form_validation->set_rules('fname', 'First Name', 'required|is_unique[alumni_info.fname]');
-			$this->form_validation->set_rules('mname', 'Middle Name', 'required|is_unique[alumni_info.mname]');
-			$this->form_validation->set_rules('lname', 'Last Name', 'required|is_unique[alumni_info.lname]');
-			$this->form_validation->set_rules('gender', 'Gender', 'required|is_unique[alumni_info.gender]');
-			$this->form_validation->set_rules('degree_id', 'Degree ID', 'required|is_unique[alumni_info.degree_id]');
-			$this->form_validation->set_rules('branch_id', 'Branch ID', 'required|is_unique[alumni_info.branch_id]');
-			$this->form_validation->set_rules('dob', 'Date Of Birth', 'required|is_unique[alumni_info.dob]');
-			$this->form_validation->set_rules('mar_status', 'Maritial Status', 'required|is_unique[alumni_info.mar_status]');
-			$this->form_validation->set_rules('mar_anniversary', 'Marriage Anniversary', 'required|is_unique[alumni_info.mar_anniversary]');
-			$this->form_validation->set_rules('photo', 'Photo', 'required|is_unique[alumni_info.photo]');
-			$this->form_validation->set_rules('p_house_no', 'House No.', 'required|is_unique[alumni_info.p_house_no]');
-			$this->form_validation->set_rules('p_street_name', 'Street Name', 'required|is_unique[alumni_info.p_street_name]');
-			$this->form_validation->set_rules('p_area', 'Area', 'required|is_unique[alumni_info.p_area]');
-			$this->form_validation->set_rules('p_city', 'City', 'required|is_unique[alumni_info.p_city]');
-			$this->form_validation->set_rules('p_state', 'State', 'required|is_unique[alumni_info.p_state]');
-			$this->form_validation->set_rules('p_country', 'Country', 'required|is_unique[alumni_info.p_country]');
-			$this->form_validation->set_rules('p_postal_code', 'Postal Code', 'required|is_unique[alumni_info.p_postal_code]');
-			$this->form_validation->set_rules('c_house_no', 'Alternate House No', 'required|is_unique[alumni_info.c_house_no]');
-			$this->form_validation->set_rules('c_street_name', 'Alternate Street Name', 'required|is_unique[alumni_info.c_street_name]');
-			$this->form_validation->set_rules('c_area', 'Alternate Area', 'required|is_unique[alumni_info.c_area]');
-			$this->form_validation->set_rules('c_city', 'Alternate City', 'required|is_unique[alumni_info.c_city]');
-			$this->form_validation->set_rules('c_state', 'Alternate State', 'required|is_unique[alumni_info.c_state]');
-			$this->form_validation->set_rules('c_country', 'Alternate Country', 'required|is_unique[alumni_info.c_country]');
-			$this->form_validation->set_rules('c_postal_code', 'Alternate Postal Code', 'required|is_unique[alumni_info.c_postal_code]');
-			$this->form_validation->set_rules('email_1', 'Email ID', 'required|is_unique[alumni_info.email_1]');
-			$this->form_validation->set_rules('email_2', 'Alternate Email ID', 'required|is_unique[alumni_info.email_2]');
-			$this->form_validation->set_rules('mobile_1', 'Mobile Number', 'required|is_unique[alumni_info.mobile_1]');
-			$this->form_validation->set_rules('mobile_2', 'Alternate Mobile Number', 'required|is_unique[alumni_info.mobile_2]');
-			$this->form_validation->set_rules('home_phone', 'Home (Phone)', 'required|is_unique[alumni_info.home_phone]');
-			$this->form_validation->set_rules('work_phone', 'Work (Phone)', 'required|is_unique[alumni_info.work_phone]');
-			$this->form_validation->set_rules('year_of_passing', 'Year Of Passing', 'required|is_unique[alumni_info.year_of_passing]');
+			$this->form_validation->set_rules('fname', 'First Name', 'required');
+			$this->form_validation->set_rules('lname', 'Last Name', 'required');
+			$this->form_validation->set_rules('gender', 'Gender', 'required');
+			$this->form_validation->set_rules('degree_id', 'Degree ID', 'required');
+			$this->form_validation->set_rules('branch_id', 'Branch ID', 'required');
+			$this->form_validation->set_rules('email_1', 'Email ID', 'required');
+			
+			$this->form_validation->set_rules('mobile_1', 'Mobile Number', 'required');
+			
+			$this->form_validation->set_rules('year_of_passing', 'Year Of Passing', 'required');
 			
 			
 			$data['message'] = '';
@@ -95,37 +78,17 @@
 			if($data['object']){
 				
 			//$this->form_validation->set_rules('alumni_id', 'Alumni ID', 'required|is_unique[alumni_info.alumni_id]');
-			$this->form_validation->set_rules('fname', 'First Name', 'required|is_unique[alumni_info.fname]');
-			$this->form_validation->set_rules('mname', 'Middle Name', 'required|is_unique[alumni_info.mname]');
-			$this->form_validation->set_rules('lname', 'Last Name', 'required|is_unique[alumni_info.lname]');
-			$this->form_validation->set_rules('gender', 'Gender', 'required|is_unique[alumni_info.gender]');
-			$this->form_validation->set_rules('degree_id', 'Degree ID', 'required|is_unique[alumni_info.degree_id]');
-			$this->form_validation->set_rules('branch_id', 'Branch ID', 'required|is_unique[alumni_info.branch_id]');
-			$this->form_validation->set_rules('dob', 'Date Of Birth', 'required|is_unique[alumni_info.dob]');
-			$this->form_validation->set_rules('mar_status', 'Maritial Status', 'required|is_unique[alumni_info.mar_status]');
-			$this->form_validation->set_rules('mar_anniversary', 'Marriage Anniversary', 'required|is_unique[alumni_info.mar_anniversary]');
-			$this->form_validation->set_rules('photo', 'Photo', 'required|is_unique[alumni_info.photo]');
-			$this->form_validation->set_rules('p_house_no', 'House No.', 'required|is_unique[alumni_info.p_house_no]');
-			$this->form_validation->set_rules('p_street_name', 'Street Name', 'required|is_unique[alumni_info.p_street_name]');
-			$this->form_validation->set_rules('p_area', 'Area', 'required|is_unique[alumni_info.p_area]');
-			$this->form_validation->set_rules('p_city', 'City', 'required|is_unique[alumni_info.p_city]');
-			$this->form_validation->set_rules('p_state', 'State', 'required|is_unique[alumni_info.p_state]');
-			$this->form_validation->set_rules('p_country', 'Country', 'required|is_unique[alumni_info.p_country]');
-			$this->form_validation->set_rules('p_postal_code', 'Postal Code', 'required|is_unique[alumni_info.p_postal_code]');
-			$this->form_validation->set_rules('c_house_no', 'Alternate House No', 'required|is_unique[alumni_info.c_house_no]');
-			$this->form_validation->set_rules('c_street_name', 'Alternate Street Name', 'required|is_unique[alumni_info.c_street_name]');
-			$this->form_validation->set_rules('c_area', 'Alternate Area', 'required|is_unique[alumni_info.c_area]');
-			$this->form_validation->set_rules('c_city', 'Alternate City', 'required|is_unique[alumni_info.c_city]');
-			$this->form_validation->set_rules('c_state', 'Alternate State', 'required|is_unique[alumni_info.c_state]');
-			$this->form_validation->set_rules('c_country', 'Alternate Country', 'required|is_unique[alumni_info.c_country]');
-			$this->form_validation->set_rules('c_postal_code', 'Alternate Postal Code', 'required|is_unique[alumni_info.c_postal_code]');
-			$this->form_validation->set_rules('email_1', 'Email ID', 'required|is_unique[alumni_info.email_1]');
-			$this->form_validation->set_rules('email_2', 'Alternate Email ID', 'required|is_unique[alumni_info.email_2]');
-			$this->form_validation->set_rules('mobile_1', 'Mobile Number', 'required|is_unique[alumni_info.mobile_1]');
-			$this->form_validation->set_rules('mobile_2', 'Alternate Mobile Number', 'required|is_unique[alumni_info.mobile_2]');
-			$this->form_validation->set_rules('home_phone', 'Home (Phone)', 'required|is_unique[alumni_info.home_phone]');
-			$this->form_validation->set_rules('work_phone', 'Work (Phone)', 'required|is_unique[alumni_info.work_phone]');
-			$this->form_validation->set_rules('year_of_passing', 'Year Of Passing', 'required|is_unique[alumni_info.year_of_passing]');
+			$this->form_validation->set_rules('fname', 'First Name', 'required');
+			
+			$this->form_validation->set_rules('lname', 'Last Name', 'required');
+			$this->form_validation->set_rules('gender', 'Gender', 'required');
+			$this->form_validation->set_rules('degree_id', 'Degree ID', 'required');
+			$this->form_validation->set_rules('branch_id', 'Branch ID', 'required');
+			$this->form_validation->set_rules('dob', 'Date Of Birth', 'required');
+			$this->form_validation->set_rules('email_1', 'Email ID', 'required');
+			
+			$this->form_validation->set_rules('mobile_1', 'Mobile Number', 'required');
+			$this->form_validation->set_rules('year_of_passing', 'Year Of Passing', 'required');
 				
 				if ($this->form_validation->run() == TRUE){
 				$this->mb->alumni_id = $_POST['alumni_id'];
@@ -178,6 +141,10 @@
 		
 		function viewall(){
 			$this->load->model('alumni_info','mb');
+			$this->load->model('degree','deg');
+			$this->load->model('branch','branch');
+			$data['model_degree'] = $this->deg;
+			$data['model_branch'] = $this->branch;
 			$data['objects'] = $this->mb->find_all();
 			if(!empty($data['objects']))
 			{
