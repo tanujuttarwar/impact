@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 09, 2014 at 02:18 PM
+-- Generation Time: Mar 14, 2014 at 11:25 AM
 -- Server version: 5.6.12-log
 -- PHP Version: 5.4.16
 
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `alumni_info` (
   PRIMARY KEY (`alumni_id`),
   KEY `degree_id` (`degree_id`,`branch_id`),
   KEY `branch_id` (`branch_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -89,7 +89,7 @@ CREATE TABLE IF NOT EXISTS `committee` (
   `committee_name` varchar(50) NOT NULL,
   PRIMARY KEY (`committee_id`),
   UNIQUE KEY `committee_name` (`committee_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `event` (
   `event_datetime` datetime NOT NULL,
   PRIMARY KEY (`event_id`),
   UNIQUE KEY `event_name` (`event_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,7 @@ CREATE TABLE IF NOT EXISTS `event_hotel` (
   `event_id` int(11) NOT NULL,
   PRIMARY KEY (`eventhotel_id`),
   KEY `event_id` (`event_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -245,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `member` (
   KEY `role_index` (`role_id`),
   KEY `branch_id` (`branch_id`),
   KEY `degree_id` (`degree_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=16 ;
 
 -- --------------------------------------------------------
 
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `permission` (
   KEY `role_id` (`role_id`),
   KEY `role_id_2` (`role_id`),
   KEY `module_id` (`module_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -305,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `position` (
   `position_description` text NOT NULL,
   PRIMARY KEY (`position_id`),
   UNIQUE KEY `position_name` (`position_name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
